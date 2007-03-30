@@ -1,0 +1,37 @@
+# parameters for HIPAlignmentAlgorithm
+
+block HIPAlignmentAlgorithm = {
+
+	string algoName = "HIPAlignmentAlgorithm"
+
+	// Dump tracks before and after refit
+	bool debug = false
+	
+	bool verbosity = false
+        bool useSurvey = false
+	string outpath = "./"
+
+        int32 eventPrescale = 20
+		
+	string outfile        = "HIPAlignmentEvents.root"
+	string outfile2       = "HIPAlignmentAlignables.root"
+	string trueFile       = "IOTruePositions.root"
+	string misalignedFile = "IOMisalignedPositions.root"
+	string alignedFile    = "IOAlignedPositions.root"
+	string iterationFile  = "IOIteration.root"
+	string uvarFile       = "IOUserVariables.root"
+	string parameterFile  = "IOAlignmentParameters.root"
+	
+	string apeParam = "linear"  // linear, exponential or none
+	vdouble apeSPar = { 0.2, 0.0, 3. }
+	vdouble apeRPar = { 0.0,  0.0, 3. }
+		
+	int32 minimumNumberOfHits = 50
+	double maxRelParameterError = 1.0
+	
+	bool collectorActive = false
+	int32 collectorNJobs = 0
+	string collectorPath = ""
+	
+}
+
