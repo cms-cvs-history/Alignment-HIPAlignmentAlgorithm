@@ -6,9 +6,8 @@ block HIPAlignmentAlgorithm = {
 
 	// Dump tracks before and after refit
 	bool debug = false
-	
 	bool verbosity = false
-        bool useSurvey = false
+
 	string outpath = "./"
 
         int32 eventPrescale = 20
@@ -32,6 +31,7 @@ block HIPAlignmentAlgorithm = {
 	bool collectorActive = false
 	int32 collectorNJobs = 0
 	string collectorPath = ""
-	
+
+	untracked vstring surveyResiduals = {"Petal", "Endcap"}
 }
 
