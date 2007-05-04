@@ -32,6 +32,6 @@ block HIPAlignmentAlgorithm = {
 	int32 collectorNJobs = 0
 	string collectorPath = ""
 
-	untracked vstring surveyResiduals = {"Petal", "Endcap"}
+	untracked vstring surveyResiduals = {} # no survey constraint
 }
 
