@@ -25,6 +25,7 @@ block HIPAlignmentAlgorithm = {
 	vdouble apeSPar = { 0.2, 0.0, 3. }
 	vdouble apeRPar = { 0.0,  0.0, 3. }
 		
+        double maxAllowedHitPull = -1.
 	int32 minimumNumberOfHits = 50
 	double maxRelParameterError = 1.0
 	
