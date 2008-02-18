@@ -21,10 +21,16 @@ block HIPAlignmentAlgorithm = {
 	string uvarFile       = "IOUserVariables.root"
 	string parameterFile  = "IOAlignmentParameters.root"
 	
-	string apeParam = "linear"  // linear, exponential or none
-	vdouble apeSPar = { 0.2, 0.0, 3. }
-	vdouble apeRPar = { 0.0,  0.0, 3. }
-		
+        bool applyAPE = true
+        VPSet apeParam = {
+          {
+	    PSet Selector = { vstring alignParams = {"AllAlignables,000000"} }
+	    string function = "linear" // linear or exponential
+	    vdouble apeSPar = {0.2, 0., 3.}
+	    vdouble apeRPar = {0.0, 0., 3.}
+	  }
+        }
+
         double maxAllowedHitPull = -1.
 	int32 minimumNumberOfHits = 50
 	double maxRelParameterError = 1.0
