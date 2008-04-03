@@ -21,7 +21,6 @@
       { string record = "TrackerAlignmentErrorRcd" string tag = "PlacementAlignmentErrors" }
     }
   }
-	replace align.catalog = "file:/afs/cern.ch/user/n/ntran/public/HIPAlignment/placementAlignments_StripsIdeal.xml"
   
 /*
   replace AlignmentProducer.MisalignmentScenario.TPBs =
