@@ -12,92 +12,18 @@
   {
     using CondDBSetup
 
-    string connect  = "sqlite_file:/afs/cern.ch/user/n/ntran/public/HIPAlignment/placementAlignments_StripsIdeal.db"
+    string connect = "frontier://cms_conditions_data/CMS_COND_20X_ALIGNMENT"
     string timetype = "runnumber"
 
     VPSet toGet =
     {
-      { string record = "TrackerAlignmentRcd"      string tag = "PlacementAlignments" },
-      { string record = "TrackerAlignmentErrorRcd" string tag = "PlacementAlignmentErrors" }
+      { string record = "GlobalPositionRcd"        string tag = "IdealGeometry" },
+      { string record = "TrackerAlignmentRcd"      string tag = "TrackerSurveyLASCosmicsScenario200_mc" },
+      { string record = "TrackerAlignmentErrorRcd" string tag = "TrackerSurveyLASCosmicsScenarioErrors200_mc" }
     }
   }
-  
-/*
-  replace AlignmentProducer.MisalignmentScenario.TPBs =
-  {
-    PSet Dets = { double dX = 0.1 double dY = 0.1 double dZ = 0.1
-                  double phiX = 0.001 double phiY = 0.001 double phiZ = 0.001 }
-  }
-  replace AlignmentProducer.MisalignmentScenario.TPEs =
-  {
-    PSet Dets = { double dX = 0.1 double dY = 0.1 double dZ = 0.1
-                  double phiX = 0.001 double phiY = 0.001 double phiZ = 0.001 }
-  }
 
-  replace AlignmentProducer.MisalignmentScenario.TIBs = { double scale = 1.0 }
-  replace AlignmentProducer.MisalignmentScenario.TIDs = { double scale = 1.0 }
-  replace AlignmentProducer.MisalignmentScenario.TOBs = { double scale = 1.0 }
-  replace AlignmentProducer.MisalignmentScenario.TECs = { double scale = 1.0 }
-*/
-
-# Misaligning the strips 10pb scenario
-
-  replace AlignmentProducer.MisalignmentScenario =
-  {
-	using MisalignmentScenarioSettings
-
-	PSet TIBs = {
-		string distribution = 'gaussian'
-		double scale = 1.0
-		PSet Dets = { double dXlocal = 0.0180 double dYlocal = 0.0180 double dZlocal = 0.0180
-			double phiXlocal = 0.000412 double phiYlocal = 0.000412 double phiZlocal = 0.000412}
-		PSet TIBStrings = { double dXlocal = 0.0100 double dYlocal = 0.0100 double dZlocal = 0.0100
-			double phiXlocal = 0.000065 double phiYlocal = 0.000065 double phiZlocal = 0.000065}
-		PSet TIBLayers = {
-			double dXlocal = 0.0100 double dYlocal = 0.0100 double dZlocal = 0.0100
-			double phiXlocal = 0.000065 double phiYlocal = 0.000065 double phiZlocal = 0.000065}
-	}
-	
-	// TID
-	PSet TIDs = {
-		double scale = 1.0
-		string distribution = 'gaussian'
-		PSet Dets = {     double dXlocal = 0.0054 double dYlocal = 0.0054 double dZlocal = 0.0054 
-				double phiXlocal = 0.000250 double phiYlocal = 0.000250 double phiZlocal = 0.000250}
-		PSet TIDRings = { double dXlocal = 0.0185 double dYlocal = 0.0185 double dZlocal = 0.0185
-				double phiXlocal = 0.000850 double phiYlocal = 0.000850 double phiZlocal = 0.000850}
-		PSet TIDDisks = {
-			double dXlocal = 0.0250 double dYlocal = 0.0250 double dZlocal = 0.0250
-				double phiXlocal = 0.000380 double phiYlocal = 0.000380 double phiZlocal = 0.000380}
-	}
-	
-	// TOB
-	PSet TOBs = {
-		double scale = 1.0
-		string distribution = 'gaussian'
-		PSet Dets = { double dXlocal = 0.0032 double dYlocal = 0.0032 double dZlocal = 0.0032
-				double phiXlocal = 0.000075 double phiYlocal = 0.000075 double phiZlocal = 0.000075}
-		PSet TOBRods = { double dXlocal = 0.0100 double dYlocal = 0.0100 double dZlocal = 0.0100
-				double phiXlocal = 0.000040 double phiYlocal = 0.000040 double phiZlocal = 0.000040}
-		PSet TOBLayers = { // Not used since TOB layers do not make sense!
-			double dXlocal = 0.0000 double dYlocal = 0.0000 double dZlocal = 0.0000 }
-		PSet TOBHalfBarrels = { double dXlocal = 0.0060 double dYlocal = 0.0060 double dZlocal = 0.0100 
-				double phiXlocal = 0.000010 double phiYlocal = 0.000010 double phiZlocal = 0.000010}
-	}
-	
-	// TEC
-	PSet TECs = {
-		double scale = 1.0
-		string distribution = 'gaussian'
-		PSet Dets = {   double dXlocal = 0.0022 double dYlocal = 0.0022 double dZlocal = 0.0022
-				double phiXlocal = 0.000050 double phiYlocal = 0.000050 double phiZlocal = 0.000050}
-		PSet TECPetals = {	double dXlocal = 0.0070 double dYlocal = 0.0070 double dZlocal = 0.0070 
-				double phiXlocal = 0.000030 double phiYlocal = 0.000030 double phiZlocal = 0.000030}
-		PSet TECDisks = { double dXlocal = 0.0060 double dYlocal = 0.0060 double dZlocal = 0.0150
-				double phiXlocal = 0.000015 double phiYlocal = 0.000015 double phiZlocal = 0.000015}
-	}
-  }
-  
-  replace AlignmentProducer.doMisalignmentScenario = true
+#  replace AlignmentProducer.MisalignmentScenario = { using TrackerSurveyLASCosmicsScenario }
+#  replace AlignmentProducer.doMisalignmentScenario = true
   replace AlignmentProducer.applyDbAlignment = true
-  replace AlignmentProducer.ParameterBuilder.Selector.alignParams = {"PixelDets,111111"}
+  replace AlignmentProducer.ParameterBuilder.Selector.alignParams = {"PixelHalfBarrelDets,111111"}
