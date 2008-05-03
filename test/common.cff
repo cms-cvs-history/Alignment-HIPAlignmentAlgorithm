@@ -1,29 +1,19 @@
   include "Alignment/CommonAlignmentProducer/data/AlignmentProducer.cff"
   include "CondCore/DBCommon/data/CondDBSetup.cfi"
+#  include "Configuration/StandardSequences/data/FrontierConditions_GlobalTag.cff"
+  include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cfi"
+  include "Geometry/TrackerNumberingBuilder/data/trackerNumberingGeometry.cfi"
 
   service = MessageLogger
   {
-    untracked vstring destinations = {'cout'}
+    untracked vstring destinations = {"cout"}
 
-    untracked PSet cout = { untracked string threshold = 'WARNING' }
+    untracked PSet cout = { untracked string threshold = "WARNING" }
   }
 
-  es_source align = PoolDBESSource
-  {
-    using CondDBSetup
+#  replace GlobalTag.globaltag = "STARTUP_V2::All"
 
-    string connect = "frontier://cms_conditions_data/CMS_COND_20X_ALIGNMENT"
-    string timetype = "runnumber"
-
-    VPSet toGet =
-    {
-      { string record = "GlobalPositionRcd"        string tag = "IdealGeometry" },
-      { string record = "TrackerAlignmentRcd"      string tag = "TrackerSurveyLASCosmicsScenario200_mc" },
-      { string record = "TrackerAlignmentErrorRcd" string tag = "TrackerSurveyLASCosmicsScenarioErrors200_mc" }
-    }
-  }
-
-#  replace AlignmentProducer.MisalignmentScenario = { using TrackerSurveyLASCosmicsScenario }
-#  replace AlignmentProducer.doMisalignmentScenario = true
-  replace AlignmentProducer.applyDbAlignment = true
-  replace AlignmentProducer.ParameterBuilder.Selector.alignParams = {"PixelHalfBarrelDets,111111"}
+  replace AlignmentProducer.MisalignmentScenario = { using TrackerSurveyLASCosmicsScenario }
+  replace AlignmentProducer.doMisalignmentScenario = true
+#  replace AlignmentProducer.applyDbAlignment = true
+  replace AlignmentProducer.ParameterBuilder.Selector.alignParams = {"AllDets,111111"}
