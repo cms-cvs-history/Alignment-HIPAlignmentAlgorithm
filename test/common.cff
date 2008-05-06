@@ -1,6 +1,6 @@
   include "Alignment/CommonAlignmentProducer/data/AlignmentProducer.cff"
   include "CondCore/DBCommon/data/CondDBSetup.cfi"
-#  include "Configuration/StandardSequences/data/FrontierConditions_GlobalTag.cff"
+  include "Configuration/StandardSequences/data/FrontierConditions_GlobalTag.cff"
   include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cfi"
   include "Geometry/TrackerNumberingBuilder/data/trackerNumberingGeometry.cfi"
 
@@ -11,9 +11,9 @@
     untracked PSet cout = { untracked string threshold = "WARNING" }
   }
 
-#  replace GlobalTag.globaltag = "STARTUP_V2::All"
+  replace GlobalTag.globaltag = "STARTUP_V2::All"
 
-  replace AlignmentProducer.MisalignmentScenario = { using TrackerSurveyLASCosmicsScenario }
-  replace AlignmentProducer.doMisalignmentScenario = true
-#  replace AlignmentProducer.applyDbAlignment = true
+#  replace AlignmentProducer.MisalignmentScenario = { using TrackerSurveyLASCosmicsScenario }
+#  replace AlignmentProducer.doMisalignmentScenario = true
+  replace AlignmentProducer.applyDbAlignment = true
   replace AlignmentProducer.ParameterBuilder.Selector.alignParams = {"AllDets,111111"}
