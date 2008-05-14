@@ -16,4 +16,11 @@
 #  replace AlignmentProducer.MisalignmentScenario = { using TrackerSurveyLASCosmicsScenario }
 #  replace AlignmentProducer.doMisalignmentScenario = true
   replace AlignmentProducer.applyDbAlignment = true
-  replace AlignmentProducer.ParameterBuilder.Selector.alignParams = {"AllDets,111111"}
+#  replace AlignmentProducer.ParameterBuilder.Selector.alignParams = {"AllDets,111111"}
+#  replace AlignmentProducer.ParameterBuilder.Selector.alignParams = {"AllRods,111111"}
+  replace AlignmentProducer.ParameterBuilder.Selector.alignParams = 
+  {
+  	"PixelHalfBarrelLadders,111000", "PXECPetals,111000",
+	  "BarrelDSRods,111000", "BarrelSSRods,100000",
+    "TIDRings,100000", "TECPetals,100000"
+  }
