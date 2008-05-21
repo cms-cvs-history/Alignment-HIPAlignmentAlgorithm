@@ -13,6 +13,8 @@ process Alignment =
   replace HIPAlignmentAlgorithm.minimumNumberOfHits = 0
   replace HIPAlignmentAlgorithm.maxRelParameterError = 1e99
 
+/* Remove comments for survey constraint
+
   replace HIPAlignmentAlgorithm.surveyResiduals = {"Det"}
   replace AlignmentProducer.useSurvey = true
 
@@ -29,4 +31,5 @@ process Alignment =
       { string record = "TrackerSurveyErrorRcd" string tag = "errorTag" }
     }
   }
+*/
 }
