@@ -20,6 +20,11 @@ block HIPAlignmentAlgorithm = {
 	string iterationFile  = "IOIteration.root"
 	string uvarFile       = "IOUserVariables.root"
 	string parameterFile  = "IOAlignmentParameters.root"
+	string surveyFile     = "HIPSurveyResiduals.root"
+
+	//!@#$%
+	//string dumpFilePath  = "./Dumpfile"	
+
 	
         bool applyAPE = true
         VPSet apeParam = {
@@ -38,6 +43,7 @@ block HIPAlignmentAlgorithm = {
 	bool collectorActive = false
 	int32 collectorNJobs = 0
 	string collectorPath = ""
+	bool fillTrackMonitoring = false
 
 	untracked vstring surveyResiduals = {} # no survey constraint
 }
