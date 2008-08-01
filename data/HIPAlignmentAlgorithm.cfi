@@ -43,7 +43,7 @@ block HIPAlignmentAlgorithm = {
 	bool collectorActive = false
 	int32 collectorNJobs = 0
 	string collectorPath = ""
-	bool fillTrackMonitoring = false
+	untracked bool fillTrackMonitoring = false
 
 	untracked vstring surveyResiduals = {} # no survey constraint
 }
