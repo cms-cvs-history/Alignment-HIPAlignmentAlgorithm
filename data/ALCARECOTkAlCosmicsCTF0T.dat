@@ -1,0 +1,7 @@
+# This file holds the paths for the data files
+# Each line is a parallel job
+# The syntax is as follows below to include multiple data files in one parallel job
+# The NAME OF THE FILE denotes the collection that is used (src collection), please change accordingly
+# This file cannot have comments, remove lines 1-5 before running algorithm
+
+'rfio:///?path=/castor/cern.ch/user/m/mweber/ALCARECO_MW33_v1_CMSSW_2_1_3/ALCARECOTkAlCosmics0T_1.root', 'rfio:///?path=/castor/cern.ch/user/m/mweber/ALCARECO_MW33_v1_CMSSW_2_1_3/ALCARECOTkAlCosmics0T_2.root', 'rfio:///?path=/castor/cern.ch/user/m/mweber/ALCARECO_MW33_v1_CMSSW_2_1_3/ALCARECOTkAlCosmics0T_3.root'
