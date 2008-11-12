@@ -1,6 +1,0 @@
-untracked PSet maxEvents = { untracked int32 input = -1 }
-
-replace AlignmentTrackSelector.nHitMin =  0
-replace AlignmentTrackSelector.ptMin   =  0.8
-replace AlignmentTrackSelector.etaMin  = -3.5
-replace AlignmentTrackSelector.etaMax  =  3.5
